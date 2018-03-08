@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>My Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"></script>
+    <style>
+        #mapid { height: 300px; }
+    </style>
+  </head>
+  <body>
+    <div id="mapid"></div>
+  </body>
+  <script>
+    var map = L.map('mapid').setView([14.656648, 121.0688209], 11);
+    L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
+    var marker = L.marker([14.656648, 121.0688209]).addTo(map);
+    marker.bindPopup("<b>Welcome to Maptime Diliman</b><br>We are here to have some pizza.").openPopup();
+var polygon = L.polygon([
+      [
+        14.65621209639423,
+        121.06861710548401
+      ],
+      [
+        14.65621209639423,
+        121.07056438922882
+      ],
+      [
+        14.657452471189856,
+        121.07056438922882
+      ],
+      [
+        14.657452471189856,
+        121.06861710548401
+      ],
+      [
+        14.65621209639423,
+        121.06861710548401
+      ]
+    ]).addTo(map);
+
+  </script>
+</html>
